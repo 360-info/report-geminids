@@ -1,0 +1,63 @@
+---
+# omit title and subtitle if you're doing a custom title block
+title: Untitled
+# for social previews
+pagetitle: Untitled
+description: A descrption for social previews
+twitter-card:
+  site: "@360info_global"
+  image: "/folder/example.png"
+open-graph:
+  image: "/folder/example.png"
+resources:
+  - example.png
+format:
+  360-embed-html: default
+# metadata for modals and embed sharing functionality
+360embed:
+  byline: James Goldie, 360info
+  data-source: XXX
+  type: map
+  aspect-ratio: 20 / 19
+  min-height: 500px
+  bg-colour: white
+  title: "Interactive: title"
+  domain: https://example.360visuals.org
+  fragments: state, month
+  path: /map/
+  about: |
+    Here's a place to **tell people** and [link to things](https://example.com)!
+---
+
+{{< include _popups/_buttons.qmd >}}
+
+```{ojs}
+//| label: region-select
+regions = new Map([
+  ["Christchurch, New Zealand", "1_F9NJGUUM8"],
+  ["Auckland, New Zealand", "ukozSTwLm0Y"],
+  ["Melbourne, Australia", "3XUn-EsThcE"]
+])
+viewof regionSelect = Inputs.select(regions, {
+  value: "3XUn-EsThcE"
+})
+
+```
+
+```{ojs}
+html`
+  <iframe
+    style="width: 100%; aspect-ratio: 16 / 9; min-height: 125px; margin-bottom: 0;"
+    src="https://www.youtube.com/embed/${regionSelect}"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>`
+```
+
+:::{style="font-size: 70%; color: grey; text-transform: uppercase;"}
+Suzannah Lyons, Michael Joiner & James Goldie, 360info  
+**Data:** Some very long credits to a bunch of great people go here
+:::
+
+{{< include _popups/_dialogs.qmd >}}
