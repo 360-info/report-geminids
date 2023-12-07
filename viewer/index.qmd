@@ -1,6 +1,6 @@
 ---
 # omit title and subtitle if you're doing a custom title block
-title: Untitled
+title: Seeing the Geminids
 # for social previews
 pagetitle: Untitled
 description: A descrption for social previews
@@ -18,9 +18,9 @@ format:
   byline: James Goldie, 360info
   data-source: XXX
   type: map
-  aspect-ratio: 20 / 19
-  min-height: 500px
-  bg-colour: white
+  aspect-ratio: 6 / 5
+  min-height: 370px
+  bg-colour: transparent
   title: "Interactive: title"
   domain: https://example.360visuals.org
   fragments: state, month
@@ -32,12 +32,16 @@ format:
 {{< include _popups/_buttons.qmd >}}
 
 ```{ojs}
-//| label: region-select
+//| label: regions
 regions = new Map([
   ["Christchurch, New Zealand", "1_F9NJGUUM8"],
   ["Auckland, New Zealand", "ukozSTwLm0Y"],
   ["Melbourne, Australia", "3XUn-EsThcE"]
 ])
+```
+
+```{ojs}
+//| label: region-select
 viewof regionSelect = Inputs.select(regions, {
   value: "3XUn-EsThcE"
 })
@@ -55,7 +59,7 @@ html`
     allowfullscreen></iframe>`
 ```
 
-:::{style="font-size: 70%; color: grey; text-transform: uppercase;"}
+:::{style="font-size: 85%; color: grey; text-transform: uppercase;"}
 Suzannah Lyons, Michael Joiner & James Goldie, 360info  
 **Data:** Some very long credits to a bunch of great people go here
 :::
