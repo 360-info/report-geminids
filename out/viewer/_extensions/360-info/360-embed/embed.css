@@ -128,7 +128,6 @@ header#title-block-header p {
 .credit {
   font-size: 85%;
   color: grey;
-  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 30em) {
@@ -141,10 +140,9 @@ header#title-block-header p {
 
 @media (min-width: 34em) {
   #region-select select {
-    
     font-size: 125%;
   }
-  
+
   .credit {
     font-size: 100%;
   }
@@ -156,6 +154,6 @@ header#title-block-header p {
   }
 
   .credit {
-    font-size: 115%;
+    font-size: 120%;
   }
 }
