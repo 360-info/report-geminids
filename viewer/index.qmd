@@ -21,7 +21,7 @@ format:
   data-source: Stellarium using the Meteor Showers Plug-in by Marcos Cardinot; modified by Jonti Horner, UniSQ
   type: visual
   aspect-ratio: 6 / 5
-  min-height: 370px
+  min-height: 410px
   bg-colour: transparent
   title: "Interactive: Where to look for the Geminids"
   domain: https://geminidshelper.360visuals.org
