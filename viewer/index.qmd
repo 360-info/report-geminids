@@ -1,67 +1,72 @@
 ---
 # omit title and subtitle if you're doing a custom title block
-title: Seeing the Geminids
+title: Where to look for the Geminids
+subtitle: Select the location closest to you to see where in the night sky the Geminid radiant will be on the night of 14 December into the morning of 15 December.
 # for social previews
-pagetitle: Untitled
-description: A descrption for social previews
+pagetitle: Where to look for the Geminids
+description: Select the location closest to you to see where in the night sky the Geminid radiant will be on the night of 14 December into the morning of 15 December.
 twitter-card:
   site: "@360info_global"
-  image: "/folder/example.png"
+  image: "/viewer/thumb.png"
 open-graph:
-  image: "/folder/example.png"
+  image: "/viewer/thumb.png"
 resources:
-  - example.png
+  - regions.csv
+  - thumb.png
 format:
   360-embed-html: default
 # metadata for modals and embed sharing functionality
 360embed:
-  byline: James Goldie, 360info
-  data-source: XXX
-  type: map
+  byline: Suzannah Lyons, Michael Joiner & James Goldie, 360info 
+  data-source: Stellarium using the Meteor Showers Plug-in by Marcos Cardinot; modified by Jonti Horner, UniSQ
+  type: visual
   aspect-ratio: 6 / 5
   min-height: 370px
   bg-colour: transparent
-  title: "Interactive: title"
-  domain: https://example.360visuals.org
-  fragments: state, month
-  path: /map/
-  about: |
-    Here's a place to **tell people** and [link to things](https://example.com)!
+  title: "Interactive: Where to look for the Geminids"
+  domain: https://geminidshelper.360visuals.org
+  path: /viewer/
 ---
 
 {{< include _popups/_buttons.qmd >}}
 
 ```{ojs}
 //| label: regions
-regions = new Map([
-  ["Christchurch, New Zealand", "1_F9NJGUUM8"],
-  ["Auckland, New Zealand", "ukozSTwLm0Y"],
-  ["Melbourne, Australia", "3XUn-EsThcE"]
-])
+import { aq, op } from "@uwdata/arquero"
+
+regions = FileAttachment("regions.csv").csv()
+regionTable = aq.from(regions)
+
+regionMap = regionTable
+  .derive({ map: d => [d.country + " - " + d.region, d.region] })
+  .array("map")
 ```
 
 ```{ojs}
 //| label: region-select
-viewof regionSelect = Inputs.select(regions, {
-  value: "3XUn-EsThcE"
-})
+viewof selectedRegion = Inputs.select(new Map(regionMap))
 
+selectedRegionRow = regionTable
+  .params({ selectedRegion: selectedRegion })
+  .filter(d => d.region == selectedRegion)
+  .objects()
 ```
 
 ```{ojs}
-html`
+//| label: video
+video = html`<div style="padding:56.25% 0 0 0;position:relative;">
   <iframe
-    style="width: 100%; aspect-ratio: 16 / 9; min-height: 125px; margin-bottom: 0;"
-    src="https://www.youtube.com/embed/${regionSelect}"
-    title="YouTube video player"
+    src="https://player.vimeo.com/video/${selectedRegionRow[0].video_id_a}?h=${selectedRegionRow[0].video_id_b}&amp;badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479"
     frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen></iframe>`
+    allow="autoplay; fullscreen; picture-in-picture"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius: 4px;"
+    title="${selectedRegionRow.region}"></iframe>
+</div>`
 ```
 
-:::{style="font-size: 85%; color: grey; text-transform: uppercase;"}
+:::{.credit}
 Suzannah Lyons, Michael Joiner & James Goldie, 360info  
-**Data:** Some very long credits to a bunch of great people go here
+**Data:** [Stellarium](https://stellarium.org/) using the [Meteor Showers Plug-in](https://stellarium.org/doc/0.18/group__meteorShowers.html) by Marcos Cardinot; modified by Jonti Horner, UniSQ
 :::
 
 {{< include _popups/_dialogs.qmd >}}

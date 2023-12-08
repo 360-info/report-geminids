@@ -22,6 +22,8 @@ This {{< meta 360embed.type >}}, as well as the analysis that underpins it, is a
 
 Please acknowledge [360info](https://360info.org) and our data sources when you use them.
 
+- [Stellarium](https://stellarium.org/) using the [Meteor Showers Plug-in](https://stellarium.org/doc/0.18/group__meteorShowers.html) by Marcos Cardinot; modified by Jonti Horner, UniSQ
+
 #### Embed this chart in your article
 
 Copy and paste the following code:
@@ -30,7 +32,7 @@ Copy and paste the following code:
 ```html
 <div style="aspect-ratio: {{< meta 360embed.aspect-ratio >}}; width: 100%; min-height: {{< meta 360embed.min-height >}};">
   <iframe
-    allow="fullscreen; clipboard-write self https://bushfire-seasons.360visuals.org"
+    allow="fullscreen; clipboard-write self {{< meta 360embed.domain >}}"
     allowfullscreen="true"
     src="{{< meta 360embed.domain >}}{{< meta 360embed.path >}}"
     title="{{< meta 360embed.title >}}"
@@ -42,26 +44,6 @@ Copy and paste the following code:
 
 This content is subject to [360info's Terms of Use](https://newshub.360info.org/page/terms).
 
-::::
-
-:::::
-::::::
-:::::::
-
-<!-- notes dialog -->
-
-::::::: {#modal-about .modal .micromodal-slide aria-hidden="true"}
-:::::: {.modal__overlay tabindex="-1" data-micromodal-close="true"}
-::::: {.modal__container role="dialog" aria-modal="true" aria-labelledby="modal-about-title"}
-
-<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-
-<header>
-## About {#modal-about-title}
-</header>
-
-:::: {#modal-about-content}
-{{< meta 360embed.about >}}
 ::::
 
 :::::
