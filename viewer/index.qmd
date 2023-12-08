@@ -1,10 +1,10 @@
 ---
 # omit title and subtitle if you're doing a custom title block
 title: Where to look for the Geminids
-subtitle: Select the location closest to you to see where in the night sky the Geminid radiant will be on the night of 14 December into the morning of 15 December.
+subtitle: Select the location closest to you to see where in the sky the Geminid radiant will be on the night of 14 December into the morning of 15 December.
 # for social previews
 pagetitle: Where to look for the Geminids
-description: Select the location closest to you to see where in the night sky the Geminid radiant will be on the night of 14 December into the morning of 15 December.
+description: Select the location closest to you to see where in the sky the Geminid radiant will be on the night of 14 December into the morning of 15 December.
 twitter-card:
   site: "@360info_global"
   image: "/viewer/thumb.png"
@@ -50,6 +50,7 @@ selectedRegionRow = regionTable
   .params({ selectedRegion: selectedRegion })
   .filter(d => d.region == selectedRegion)
   .objects()
+
 ```
 
 ```{ojs}
@@ -60,7 +61,7 @@ video = html`<div style="padding:56.25% 0 0 0;position:relative;">
     frameborder="0"
     allow="autoplay; fullscreen; picture-in-picture"
     style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius: 4px;"
-    title="${selectedRegionRow.region}"></iframe>
+    title="${selectedRegionRow[0].region}"></iframe>
 </div>`
 ```
 
