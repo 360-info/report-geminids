@@ -125,6 +125,11 @@ header#title-block-header p {
   text-align: center;
 }
 
+#region-select select option {
+  background-color: #222222;
+  color: white;
+}
+
 .credit {
   font-size: 85%;
   color: grey;

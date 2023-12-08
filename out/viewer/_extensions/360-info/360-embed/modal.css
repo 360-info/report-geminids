@@ -169,7 +169,7 @@
 /* editor share banner */
 #edshare {
   position: absolute;
-  top: 25%;
+  top: 65%;
   right: 0;
   z-index: 1000;
   visibility: hidden;
@@ -185,6 +185,20 @@
 
   align-items: center;
   gap: 10px;
+}
+
+@media (max-width: 45em) {
+  #edshare {
+    transform: scale(0.75);
+    transform-origin: right;
+  }
+}
+
+@media (max-width: 34em) {
+  #edshare {
+    transform: scale(0.6);
+    transform-origin: right;
+  }
 }
 
 #edshare-title {
