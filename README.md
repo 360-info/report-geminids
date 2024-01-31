@@ -1,5 +1,5 @@
 # Geminids
-### [📋&nbsp;Add&nbsp;graphic&nbsp;to&nbsp;your&nbsp;story](https://example.360visuals.org/viewer?edshare) • [📊&nbsp;Get&nbsp;the&nbsp;data](data) • [💻&nbsp;Reproduce&nbsp;the&nbsp;analysis](#-reproduce-the-analysis)
+### [📋&nbsp;Add&nbsp;graphic&nbsp;to&nbsp;your&nbsp;story](https://geminidshelper.360visuals.org/viewer?edshare) • [📊&nbsp;Get&nbsp;the&nbsp;data](data) • [💻&nbsp;Reproduce&nbsp;the&nbsp;analysis](#-reproduce-the-analysis)
 
 Shows you were to view the Geminids 2023 meteor shower from several cities.
 
